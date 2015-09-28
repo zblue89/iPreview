@@ -1,0 +1,8 @@
+.ipreview-wrapper{background-color:#ffffff; padding: 15px; color: #000000;position:relative;border:1px solid #000000;}
+.ipreview-wrapper:hover{cursor:pointer;}
+.ipreview-text{display:block;text-align:center;font-size: 20px;padding:30px 0px;}
+.ipreview-loading{background-color:#bfbfbf; padding: 15px; color: #000000;}
+.ipreview-loading .ipreview-text{border-color: #000000; }
+.ipreview-loading:hover{cursor:wait;}
+.ipreview-img{max-width:100%;display:block;margin:0 auto;}
+.ipreview-remove{position:absolute;top:0px;right:0px;display:none;width:30px;height:30px;font-size:20px;padding:5px;}
