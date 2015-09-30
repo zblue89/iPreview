@@ -62,19 +62,19 @@
 	
 	    	                    $(ele.attr('data-text')).html($(ele.attr('data-text')).attr('data-text'));
 	    	                	ele.parent().removeClass('ipreview-loading');
-	    	                	settings.success(ele, canvas.toDataURL());
+	    	                	ele.trigger('ipreviewSuccess', canvas.toDataURL());
 	    	                });
 	    	                img.src = e.target.result;
 	    	        	} else {
 	    	        		$(ele.attr('data-text')).html($(ele.attr('data-text')).attr('data-text'));
 	    	        		ele.parent().removeClass('ipreview-loading');
-	    	             	settings.success(ele, e.target.result);
+	    	             	ele.trigger('ipreviewSuccess', e.target.result);
 	    	        	}
 	    	        };
 	    	        reader.onerror = function(){
 	    	        	$(ele.attr('data-text')).html($(ele.attr('data-text')).attr('data-text'));
 	    	        	ele.parent().removeClass('ipreview-loading');
-	    	            settings.error(ele);
+	    	        	ele.trigger('ipreviewError');
 	    	        };
 	
 	    	        reader.readAsDataURL($(this)[0].files[0]);
@@ -135,12 +135,14 @@
 	        	if(!$(this).parent().hasClass('ipreview-loading')){
 	                $('#ip-file').attr('data-parent', '#'+$(this).attr('id')).trigger('click');
 	            }
-	        });
-	
-	        $(this).on('removeImg',function() {
+	        }).on('removeImg',function() {
 	        	$(this).prop('data-manual-remove',true).removeAttr('src').hide();
 	        	$($(this).attr('data-remove')).hide();
 	            $($(this).attr('data-text')).show();
+	        }).on('ipreviewError', function(fn){
+	        	settings.error($(this));
+	        }).on('ipreviewSuccess', function(fn, data){
+	        	settings.success($(this), data);
 	        });
 	    });
 	};
