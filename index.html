@@ -3,59 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <title>iPreview - jQuery Image Preview Plugin</title>
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-<link rel="stylesheet" href="../bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="../bootstrap.css"> -->
 <link rel="stylesheet" href="css/jquery.ipreview.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
 	<div class="header">
-		<h1>iPreview <small>an image preview plugin for jQuery</small></h1>
+		<h1>iPreview <small>jQuery Image Preview Plugin</small></h1>
 	</div>
 	<div class="body">
-		<div class="row">
-			<div class="col-md-12">
-				<h2>Simple Example</h2>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Simple Example</h4></div>
+			<div class="panel-body">
+		    <div class="row">
+				<div class="col-md-6">
+					<img id="preview-file"/>
+				</div>
+				<div class="col-md-6">
+					<pre>$('#preview-file').ipreview();</pre>
+				</div>
+			</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<img id="preview-file"/>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Resize Example</h4></div>
+			<div class="panel-body">
+		    <div class="row">
+				<div class="col-md-6">
+					<img id="preview-file2"/>
+				</div>
+				<div class="col-md-6">
+					<pre>$('#preview-file2').ipreview({
+	resize: true,
+	maxwidth: 100,
+	maxheight: 200
+});</pre>
+				</div>
 			</div>
-			<div class="col-md-6">
-				<code>
-					$('#preview-file').ipreview();
-				</code>
 			</div>
 		</div>
 		
-		<div class="row">
-			<div class="col-md-12">
-				<h2>Advance Example</h2>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Advance Example</h4></div>
+			<div class="panel-body">
+		    <div class="row">
+				<div class="col-md-6">
+					<img id="preview-file3" src="img/github.png"/>
+				</div>
+				<div class="col-md-6">
+					<pre>$('#preview-file3').ipreview({
+	success: function(ele, data){
+		ele.attr('src', data);
+		alert('Image Replace!');
+	}
+});</pre>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<img id="preview-file2"/>
-			</div>
-			<div class="col-md-6">
-				<code>
-					$('#preview-file2').ipreview({
-						resize: true,
-						maxwidth: 100,
-						maxheight:200
-					});
-				</code>
 			</div>
 		</div>
 	</div>
 	<div class="footer">
-		<a href="https://www.github.com/zblue89/ipreview">Visit GitHub</a>
+		<div class="row">
+			<div class="col-xs-6">
+				<a href="https://www.github.com/zblue89/ipreview">Visit GitHub</a>	
+			</div>
+			<div class="col-xs-6 text-right">
+				<p>Updated on 2015-09-30 @ zblue89</p>	
+			</div>
+		</div>
 	</div>
 </div>
-<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
-<script src="../jquery.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script src="../jquery.js"></script> -->
 <script src="js/jquery.ipreview.js"></script>
 <script type="text/javascript">
 $('#preview-file').ipreview();
@@ -63,6 +84,12 @@ $('#preview-file2').ipreview({
 	resize: true,
 	maxwidth: 100,
 	maxheight:200,
+});
+$('#preview-file3').ipreview({
+	success: function(ele, data){
+		ele.attr('src', data);
+		alert('Image Replace!');
+	}
 });
 </script>
 </body>
