@@ -1,0 +1,7 @@
+body{background-color:#eeeeee;}
+.header{background-color:#569ae4;padding:10px;}
+.header h1{color:#ffffff;}
+.header h1 small{color:#eeeeee;}
+.body{background-color:#ffffff;padding:10px;}
+.footer{background-color:#569ae4;padding:5px 10px;}
+.footer a{color:#eeeeee;text-decoration:none;}

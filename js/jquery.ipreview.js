@@ -87,12 +87,15 @@ $.fn.ipreview = function(options){
 	        ele.siblings('#ipreview-text').html('Loading...').show();
 	        ele.parent().addClass('ipreview-loading');
 
+	        console.debug('resize:'+settings.resize);
 	        var reader = new FileReader();
 	        reader.onload = function(e){
 	        	var isGif = (e.target.result.indexOf('image/gif') >= 0);
 	        	if(settings.resize && !isGif){
 	        		var img = new Image()
+	        		console.debug('resizing...');
 	                $(img).one('load', function () {
+	                	console.debug('resizing...');
 	                    var MAX_WIDTH = ele.attr('data-max-width') ? parseInt(ele.attr('data-max-width')) : settings.maxwidth;
 	                    var MAX_HEIGHT = ele.attr('data-max-height') ? parseInt(ele.attr('data-max-height')) : settings.maxheight;
 	                    var width = img.width;
