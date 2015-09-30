@@ -31,8 +31,8 @@ $.fn.ipreview = function(options){
             $(this).attr('id', 'ip-image-'+initCount);
         }
         $(this).addClass('ipreview-img').wrap('<div class="ipreview-wrapper" title="'+settings.title+'"></div>');
-        $(this).before('<span class="ipreview-remove"><i class="glyphicon glyphicon-remove"></i></span>');
-        $(this).before('<span style="display:none;" class="ipreview-text">'+settings.text+'</span>');
+        $(this).before('<div class="ipreview-remove"><i class="glyphicon glyphicon-remove"></i></div>');
+        $(this).before('<div class="ipreview-text">'+settings.text+'</div>');
 
         if(!$(this).attr('src')){
             $(this).hide();
